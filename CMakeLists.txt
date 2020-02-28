@@ -262,7 +262,6 @@ install(TARGETS ${QTKEYCHAIN_TARGET_NAME}
   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
 
-
 if(MSVC_RUNTIME STREQUAL "static")
 	get_target_property(Qt5_LOCATION Qt5::Core LOCATION)
 	get_filename_component(Qt5_DIRECTORY "${Qt5_LOCATION}" DIRECTORY)
@@ -286,12 +285,10 @@ if(MSVC_RUNTIME STREQUAL "static")
 	set(STATIC_ADDITIONAL_LIBS ${qtpcre_LIBRARIES} Ws2_32.lib Version.lib Winmm.lib)
 endif()
 
-
 if(BUILD_TEST_APPLICATION)
 	add_executable( testclient testclient.cpp )
 	target_link_libraries( testclient ${QTKEYCHAIN_TARGET_NAME} ${STATIC_ADDITIONAL_LIBS})
 endif()
-
 
 ###
 ### CMake config file
